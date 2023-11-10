@@ -1,0 +1,51 @@
+#!/bin/zsh
+
+PROMPT='%~  '
+
+autoload -Uz compinit && compinit
+setopt complete_in_word
+setopt auto_menu
+setopt autocd
+ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
+
+setopt interactive_comments
+unsetopt correct_all
+export BLOCK_SIZE="'1"
+
+# name to long
+alias vim="nvim"
+alias tvim="NVIM_APPNAME=\"tvim\" nvim" # vim for testing
+alias lg="lazygit"
+alias z="zathura"
+alias swimg="swayimg"
+
+# tmux
+alias tmx="tmux"
+alias ta="tmux attach"
+
+# I can't type
+alias chmox="chmod +x"
+alias celar="clear"
+alias pac="sudo pacman"
+
+# eye candy
+alias ls="eza --group-directories-first"
+alias la="eza --group-directories-first -a"
+alias ll="eza --group-directories-first -a -l"
+
+# better shell integration
+autoload -U add-zsh-hook
+function osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
+
+function chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || osc7-pwd
+}
+add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+
+# opam configuration
+[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

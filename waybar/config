@@ -1,0 +1,87 @@
+{
+    "layer": "top",
+
+    "position": "top",
+
+    "height": 25,
+
+    "modules-left": [
+        "sway/workspaces",
+    ],
+    "modules-right": [
+        "network",
+        "temperature",
+        "battery",
+        "clock#date",
+        "clock#time",
+        "tray",
+    ],
+
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        // Connected to AC
+        "format": " {icon}  {capacity}%", // Icon: bolt
+        // Not connected to AC
+        "format-discharging": "{icon}  {capacity}%",
+        "format-icons": [
+            "  ", // Icon: battery-full
+            "  ", // Icon: battery-three-quarters
+            "  ", // Icon: battery-half
+            "  ", // Icon: battery-quarter
+            "  "  // Icon: battery-empty
+        ],
+        "tooltip": true
+    },
+
+    "clock#time": {
+        "interval": 1,
+        "format": "󰥔 {:%H:%M}",
+        "tooltip": false
+    },
+
+    "clock#date": {
+      "interval": 10,
+      "format": "  {:%e %b %Y}", // Icon: calendar-alt
+      "tooltip-format": "{:%e %B %Y}"
+    },
+
+    "network": {
+        "interval": 5,
+        "format-wifi": "   {essid}", // Icon: wifi
+        "tooltip-format": "{ifname}: {ipaddr}"
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 120
+    },
+
+    "sway/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": true,
+    },
+
+    "temperature": {
+      "critical-threshold": 80,
+      "interval": 5,
+      "format": "{icon}  {temperatureC}°C",
+      "format-icons": [
+          "", // Icon: temperature-empty
+          "", // Icon: temperature-quarter
+          "", // Icon: temperature-half
+          "", // Icon: temperature-three-quarters
+          ""  // Icon: temperature-full
+      ],
+      "tooltip": true
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    }
+
+}
