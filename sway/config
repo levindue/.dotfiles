@@ -28,6 +28,7 @@ exec swayidle -w \
 
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
+bindsym $mod+backspace exec powermenu
 bindsym $mod++q kill
 
 floating_modifier $mod normal
