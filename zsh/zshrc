@@ -19,6 +19,9 @@ alias lg="lazygit"
 alias z="zathura"
 alias swimg="swayimg"
 
+# command to long
+alias cwr="cargo watch -c -x 'run -q'"
+
 # tmux
 alias tmx="tmux"
 alias ta="tmux attach"
