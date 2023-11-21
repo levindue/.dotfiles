@@ -19,16 +19,19 @@ alias lg="lazygit"
 alias z="zathura"
 alias swimg="swayimg"
 
+# git
+alias gst="git status"
+
 # command to long
 alias cwr="cargo watch -c -x 'run -q'"
 
 # tmux
 alias tmx="tmux"
 alias ta="tmux attach"
+alias tls="tmux ls"
 
 # I can't type
 alias chmox="chmod +x"
-alias celar="clear"
 alias pac="sudo pacman"
 
 # eye candy
