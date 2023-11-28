@@ -38,6 +38,7 @@ alias pac="sudo pacman"
 alias ls="eza --group-directories-first"
 alias la="eza --group-directories-first -a"
 alias ll="eza --group-directories-first -a -l"
+alias tree="eza --icons --tree"
 
 # better shell integration
 autoload -U add-zsh-hook
